@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script type="module" src="script.js" defer></script>
 </head>
 <body>
-<div class="parent">
-    <p id="morse" class="p_flex_item flex_item">here</p>
-    <input type="text" id="input" class="i_flex_item flex_item">
-    <button type="submit" id="btn"class="b_flex_item flex_item">submit</button>
-</div>
-    
-    <script src="script.js"></script>
+    <div>
+        <span id="span"></span>
+        <input type="text" id="input">
+        <select name="select" id="select">
+            <option value="text">text to morse</option>
+            <option value="morse">morse to text</option>
+        </select>
+        <button id="btn">Submit</button>
+    </div>
 </body>
 </html>
