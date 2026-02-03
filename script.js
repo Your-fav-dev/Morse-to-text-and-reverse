@@ -1,21 +1,23 @@
-import { Morsify, unMorsify } from "./moduals/morseModual.mjs"
+import { Morsify, unMorsify } from "./index.js"
 const userOutput = document.querySelector("#span");
 const btn = document.querySelector("#btn");
+const inputEl = document.querySelector("#input");
 
 btn.addEventListener('click', () => {
-const inputEl = document.querySelector("#input");
 const userInput = inputEl.value;
 const select = document.querySelector("#select").value;
-try{    
-    if(select === "text"){
-        userOutput.textContent = Morsify(userInput);
-    }else if(select === "morse") {
-        userOutput.textContent = unMorsify(userInput);
-    }else {
-        return;
-    };
-}catch(err){
-    console.log(err);
+console.log(userInput)
+if(!userInput){
+    alert("input something")
+    return
 }
-    inputEl.value = "";
+if(select === "text"){
+    userOutput.textContent = Morsify(userInput)
+}else if(userInput === "morse"){
+    userOutput.textContent = unMorsify(userInput)
+}else {
+    throw new Error("idk")
+};
+
+document.querySelector("#input").value = "";
 });

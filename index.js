@@ -1,5 +1,4 @@
-const express = require("express");
-const app = express();
+
 const STRING_TO_MORSE = {
     KEY : {
         A: ".- ",
@@ -84,7 +83,7 @@ const MORSE_TO_STRING = {
     }
 };
 
-function Morsify(input) {
+export function Morsify(input) {
     if(typeof input !== "string") return;
     let text = input.toUpperCase();
     let buffer = text.split("");
@@ -97,7 +96,7 @@ function Morsify(input) {
     return output
 };
 
-function unMorsify(input){
+export function unMorsify(input){
     if(typeof input !== "string") return;
     let buffer = input.split(" ");
     let out = [];
@@ -110,9 +109,4 @@ function unMorsify(input){
         );
     let output = cleaned.join("");
     return output
-};
-
-export {
-    Morsify,
-    unMorsify,
 };
