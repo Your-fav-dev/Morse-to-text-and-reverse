@@ -4,6 +4,7 @@
   "description": "make the whole thing an api and make a website that\r fetch s to this api and you can export and import the \r object that holds the morse values",
   "main": "script.js",
   "scripts": {
+    "morse" : "node --watch morseModual.mjs", 
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
