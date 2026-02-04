@@ -3,6 +3,7 @@ const userOutput = document.querySelector("#span");
 const btn = document.querySelector("#btn");
 const inputEl = document.querySelector("#input");
 const clearBtn = document.querySelector("#delete");
+const copyBtn = document.querySelector("#copyBtn");
 
 btn.addEventListener('click', () => {
 const userInput = inputEl.value;
@@ -21,4 +22,10 @@ document.querySelector("#input").value = "";
 
 clearBtn.addEventListener("click", () => {
     userOutput.textContent = "";
+});
+
+copyBtn.addEventListener("click", () => {
+    const copyText = userOutput.textContent;
+    navigator.clipboard.writeText(copyText);
+    alert("Copied");
 });
