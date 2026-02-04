@@ -6,79 +6,59 @@
   padding: 0;
 }
 
-body{
-    font-size: 67.5%;
-    background-color: #212121;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+body {
+  font-size: 75%;                    /* ← increased a bit from 67.5% */
+  background-color: #212121;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
+
 .card {
   position: relative;
-  width: 20rem;              /* w-48 */
-  height: 28rem;             /* h-64 */
+  width: 26rem;                      /* was 20rem — bigger card */
+  height: 34rem;                     /* was 28rem — more vertical space */
   overflow: hidden;
-  border-radius: 1rem;    /* rounded-xl */
+  border-radius: 1.25rem;
   background-color: #3d3c3d;
-  filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.4)); /* drop-shadow-xl */
+  filter: drop-shadow(0 35px 50px rgba(0, 0, 0, 0.45));
+}
+
+.card-glow {
+  position: absolute;
+  width: 30rem;
+  height: 24rem;
+  background-color: white;
+  filter: blur(70px);
+  left: -50%;
+  top: -45%;
 }
 
 .card-content {
   position: absolute;
-  inset: 0.125rem;
+  inset: 0.25rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  padding: 0.75rem;
-  border-radius: 0.75rem;
+  gap: 1.25rem;                      /* ← more space between elements */
+  padding: 1.25rem;                  /* ← more inner padding */
+  border-radius: 1rem;
   background-color: #323132;
   color: white;
   opacity: 0.9;
   z-index: 1;
 }
 
-
-.card-glow {
-  position: absolute;
-  width: 22rem;              /* w-56 */
-  height: 18rem;             /* h-48 */
-  background-color: white;
-  filter: blur(60px);        /* blur-[50px] */
-  left: -50%;                /* -left-1/2 */
-  top: -50%;                 /* -top-1/2 */
-}
-
-.buttons {
-  display: flex;
-  gap: 0.5rem;
-}
-
-select{
+select {
   width: 100%;
   background: #1f1f1f;
   color: #eaeaea;
   border: 1px solid #3a3a3a;
   border-radius: 0.5rem;
-  padding: 0.6rem 0.7rem;
-  font-size: 0.9rem;
+  padding: 0.7rem 0.8rem;
+  font-size: 1rem;                   /* ← matched size feel */
   outline: none;
   transition: all 0.2s ease;
-}
-
-textarea {
-  width: 100%;
-  background: #1f1f1f;
-  color: #eaeaea;
-  border: 1px solid #3a3a3a;
-  border-radius: 0.5rem;
-  padding: 0.6rem 0.7rem;
-  font-size: 0.9rem;
-  outline: none;
-  overflow-y: auto;
-  resize: none;
-  flex: 1;          /* 🔑 fills remaining space */
-  min-height: 0;    /* 🔑 allows shrinking */
 }
 
 select:hover,
@@ -92,14 +72,38 @@ textarea:focus {
   box-shadow: 0 0 0 2px rgba(124, 124, 255, 0.2);
 }
 
+textarea {
+  width: 100%;
+  background: #1f1f1f;
+  color: #eaeaea;
+  border: 1px solid #3a3a3a;
+  border-radius: 0.5rem;
+  padding: 0.7rem 0.8rem;
+  font-size: 1rem;
+  outline: none;
+  overflow-y: auto;
+  resize: none;
+  
+  /* Key changes: fixed small height, no growing */
+  flex: 0 0 auto;
+  height: 6.5rem;                    /* ← main change — shorter textarea */
+  min-height: unset;
+}
+
+.buttons {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: auto;                  /* pushes buttons toward bottom */
+}
+
 button {
   flex: 1;
   background: linear-gradient(135deg, #5f5fff, #8a8aff);
   color: white;
   border: none;
   border-radius: 0.5rem;
-  padding: 0.6rem 0;
-  font-size: 0.85rem;
+  padding: 0.75rem 0;
+  font-size: 0.95rem;
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
@@ -120,9 +124,4 @@ button:active {
 
 #delete:hover {
   background: #333;
-}
-
-.card-content {
-  padding: 1rem;
-  gap: 1rem;
 }
