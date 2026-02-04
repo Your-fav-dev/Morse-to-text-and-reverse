@@ -1,37 +1,128 @@
-*{
-    padding: 0;
-    margin: 0;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
 body{
     font-size: 67.5%;
-}
-.parent{
+    background-color: #212121;
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content:center;
-    align-content: center;
-    margin-top: 25rem;
-    border: solid balck;
-    border-radius: 10%;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
-.btn_div{
-    display: flex;
-    justify-content: space-between;
+.card {
+  position: relative;
+  width: 20rem;              /* w-48 */
+  height: 28rem;             /* h-64 */
+  overflow: hidden;
+  border-radius: 1rem;    /* rounded-xl */
+  background-color: #3d3c3d;
+  filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.4)); /* drop-shadow-xl */
 }
-#input{
-    resize: none;
+
+.card-content {
+  position: absolute;
+  inset: 0.125rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background-color: #323132;
+  color: white;
+  opacity: 0.9;
+  z-index: 1;
 }
-#btn, #delete {
-    border: solid black;
-    border-radius: 5%;
-    background-color: black;
-    color: white;
+
+
+.card-glow {
+  position: absolute;
+  width: 22rem;              /* w-56 */
+  height: 18rem;             /* h-48 */
+  background-color: white;
+  filter: blur(60px);        /* blur-[50px] */
+  left: -50%;                /* -left-1/2 */
+  top: -50%;                 /* -top-1/2 */
 }
-#span{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 2rem;
-    color: black;
-    background-color: grey;
-    margin: 1rem;
+
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+select{
+  width: 100%;
+  background: #1f1f1f;
+  color: #eaeaea;
+  border: 1px solid #3a3a3a;
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.7rem;
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+textarea {
+  width: 100%;
+  background: #1f1f1f;
+  color: #eaeaea;
+  border: 1px solid #3a3a3a;
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.7rem;
+  font-size: 0.9rem;
+  outline: none;
+  overflow-y: auto;
+  resize: none;
+  flex: 1;          /* 🔑 fills remaining space */
+  min-height: 0;    /* 🔑 allows shrinking */
+}
+
+select:hover,
+textarea:hover {
+  border-color: #555;
+}
+
+select:focus,
+textarea:focus {
+  border-color: #7c7cff;
+  box-shadow: 0 0 0 2px rgba(124, 124, 255, 0.2);
+}
+
+button {
+  flex: 1;
+  background: linear-gradient(135deg, #5f5fff, #8a8aff);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.6rem 0;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 15px rgba(124, 124, 255, 0.35);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+#delete {
+  background: #2a2a2a;
+  color: #ccc;
+}
+
+#delete:hover {
+  background: #333;
+}
+
+.card-content {
+  padding: 1rem;
+  gap: 1rem;
 }
