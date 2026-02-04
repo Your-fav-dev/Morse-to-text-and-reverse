@@ -7,7 +7,7 @@
 }
 
 body {
-  font-size: 75%;                    /* ← increased a bit from 67.5% */
+  font-size: 75%;
   background-color: #212121;
   display: flex;
   justify-content: center;
@@ -17,8 +17,8 @@ body {
 
 .card {
   position: relative;
-  width: 26rem;                      /* was 20rem — bigger card */
-  height: 34rem;                     /* was 28rem — more vertical space */
+  width: 26rem;
+  height: 34rem;
   overflow: hidden;
   border-radius: 1.25rem;
   background-color: #3d3c3d;
@@ -40,13 +40,19 @@ body {
   inset: 0.25rem;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;                      /* ← more space between elements */
-  padding: 1.25rem;                  /* ← more inner padding */
+  gap: 1.25rem;              /* reduced from 1.25rem → tighter overall */
+  padding: 1.25rem 1.25rem 1.5rem;
   border-radius: 1rem;
   background-color: #323132;
   color: white;
   opacity: 0.9;
   z-index: 1;
+  justify-content: center;
+}
+
+/* Add space above the dropdown → pushes select + textarea downwards */
+.card-content > select {
+  margin-top: 1.5rem;         /* ← main control: increase to push lower, decrease to move up */
 }
 
 select {
@@ -56,7 +62,7 @@ select {
   border: 1px solid #3a3a3a;
   border-radius: 0.5rem;
   padding: 0.7rem 0.8rem;
-  font-size: 1rem;                   /* ← matched size feel */
+  font-size: 1rem;
   outline: none;
   transition: all 0.2s ease;
 }
@@ -83,17 +89,17 @@ textarea {
   outline: none;
   overflow-y: auto;
   resize: none;
-  
-  /* Key changes: fixed small height, no growing */
   flex: 0 0 auto;
-  height: 6.5rem;                    /* ← main change — shorter textarea */
+  height: 6.5rem;
   min-height: unset;
 }
 
+/* No more auto margin → buttons stay close to textarea */
 .buttons {
   display: flex;
   gap: 0.75rem;
-  margin-top: auto;                  /* pushes buttons toward bottom */
+  /* margin-top: auto;  ← removed on purpose */
+  margin-top: 0.75rem;     /* small breathing room above buttons */
 }
 
 button {
@@ -124,4 +130,46 @@ button:active {
 
 #delete:hover {
   background: #333;
+}
+
+#span {
+    display: block;                  /* ← very important – treat it like a div */
+    font-size: 2.25rem;
+    line-height: 1.45;
+    color: #e0e0ff;
+    background: rgba(30, 30, 50, 0.45);
+    border-radius: 0.6rem;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1.2rem;           /* space to select – keep it */
+
+    /* Fixed height + scroll */
+    height: 9rem;                    /* ← changed from max-height to fixed height */
+    max-height: 9rem;                /* optional fallback */
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    /* Better text wrapping for Morse code */
+    white-space: pre-wrap;           /* preserves spaces & line breaks */
+    word-break: break-all;           /* breaks very long dot/dash sequences */
+    hyphens: auto;
+
+    /* Scrollbar styling */
+    scrollbar-width: thin;
+    scrollbar-color: #7c7cff #2a2a2a;
+}
+
+/* WebKit scrollbar */
+#span::-webkit-scrollbar {
+    width: 7px;
+}
+#span::-webkit-scrollbar-track {
+    background: #222;
+    border-radius: 10px;
+}
+#span::-webkit-scrollbar-thumb {
+    background: #7c7cff;
+    border-radius: 10px;
+}
+#span::-webkit-scrollbar-thumb:hover {
+    background: #a0a0ff;
 }
