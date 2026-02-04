@@ -1,4 +1,3 @@
-
 const STRING_TO_MORSE = {
     KEY : {
         A: ".- ",
